@@ -3,10 +3,21 @@
 This table provides **Python equivalents** for common R data science tasks.
 
 ---
+
 ## **0. Navigating paths**
 # **Navigating Directories and Working with Path Objects**
 
 When working with files and directories, it is important to know how to navigate folders, create paths, and reference files in both **R** and **Python**.
+
+### pasting
+| Task | R Code | Python Code |
+|------|--------|------------|
+| **paste values** | `glue() or paste()` | `str(varname) + "some_text"` |
+
+### quick series generation
+| Task | R Code | Python Code |
+|------|--------|------------|
+| **paste values** | `1:10` | `range()` |
 
 ---
 
@@ -105,6 +116,7 @@ When working with files and directories, it is important to know how to navigate
 | **Drop a column** | `df %>% select(-age)` | `df = df.drop(columns=["age"])` |
 | **Filter rows that do not contain a string** | `df %>% filter(!str_detect(name, "John"))` | `df = df[~df["name"].str.contains("John")]` |
 | **Filter rows where values are in a list** | `df %>% filter(country %in% c("USA", "Canada"))` | `df = df[df["country"].isin(["USA", "Canada"])]` |
+| **Rename columns** | `df %>% rename(old_name = new_name)` | `df.rename(columns = {"old_name":"new_name"})` |
 
 ---
 
@@ -147,8 +159,15 @@ When working with files and directories, it is important to know how to navigate
 | **Fill missing values** | `df %>% replace_na(list(sales = 0))` | `df["sales"].fillna(0, inplace=True)` |
 
 ---
+## **7. Window Functions**
 
-## **6. Visualization**
+| Task | R Code (ggplot2) | Python Code (Matplotlib/Seaborn) |
+|------|----------------|-----------------|
+| **Bar chart** | `ggplot(df, aes(x = state, y = sales)) + geom_col()` | `plt.bar(df["state"], df["sales"])` |
+
+
+
+## **7. Visualization**
 
 | Task | R Code (ggplot2) | Python Code (Matplotlib/Seaborn) |
 |------|----------------|-----------------|
